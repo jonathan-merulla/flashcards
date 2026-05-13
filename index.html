@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flashcards</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial;
+    background:#111;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.container{
+    text-align:center;
+    width:90%;
+    max-width:500px;
+}
+
+.card{
+    background:#222;
+    border-radius:20px;
+    padding:20px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.card img{
+    width:100%;
+    border-radius:15px;
+    max-height:400px;
+    object-fit:cover;
+}
+
+.answer{
+    display:none;
+    margin-top:20px;
+    font-size:24px;
+}
+
+button{
+    margin-top:20px;
+    padding:15px 30px;
+    border:none;
+    border-radius:10px;
+    background:white;
+    color:black;
+    font-size:18px;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="card" onclick="showAnswer()">
+    <img id="cardImage" src="">
+    <div class="answer" id="answer"></div>
+</div>
+
+<button onclick="nextCard()">Carte suivante</button>
+
+</div>
+
+<script>
+
+const cards = [
+
+{
+image:"https://upload.wikimedia.org/wikipedia/commons/0/0d/Big_%26_Small_Pumkins.JPG",
+answer:"Citrouille"
+},
+
+{
+image:"https://upload.wikimedia.org/wikipedia/commons/3/36/Hopetoun_falls.jpg",
+answer:"Cascade"
+},
+
+{
+image:"https://upload.wikimedia.org/wikipedia/commons/9/99/Black_square.jpg",
+answer:"Carré noir"
+}
+
+];
+
+let currentCard;
+
+function nextCard(){
+
+document.getElementById("answer").style.display="none";
+
+currentCard = cards[Math.floor(Math.random()*cards.length)];
+
+document.getElementById("cardImage").src = currentCard.image;
+
+document.getElementById("answer").innerText = currentCard.answer;
+
+}
+
+function showAnswer(){
+document.getElementById("answer").style.display="block";
+}
+
+nextCard();
+
+</script>
+
+</body>
+</html>
