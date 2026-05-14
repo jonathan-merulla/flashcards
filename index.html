@@ -63,6 +63,7 @@ button{
 
 <div class="card" onclick="showAnswer()">
     <img id="cardImage" src="">
+    <div id="questionText"></div>
     <div class="answer" id="answer"></div>
 </div>
 
@@ -182,7 +183,23 @@ function nextCard(){
 
 document.getElementById("answer").style.display="none";
 
-currentCard = cards[Math.floor(Math.random()*cards.length)];
+if(currentCard.image){
+
+document.getElementById("cardImage").style.display="block";
+document.getElementById("questionText").style.display="none";
+
+document.getElementById("cardImage").src = currentCard.image;
+
+}
+
+if(currentCard.question){
+
+document.getElementById("cardImage").style.display="none";
+document.getElementById("questionText").style.display="block";
+
+document.getElementById("questionText").innerText = currentCard.question;
+
+}
 
 document.getElementById("cardImage").src = currentCard.image;
 
