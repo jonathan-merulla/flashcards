@@ -182,13 +182,12 @@ let currentCard;
 function nextCard(){
 
 document.getElementById("answer").style.display="none";
+currentCard = cards[Math.floor(Math.random()*cards.length)];
 
 if(currentCard.image){
 
 document.getElementById("cardImage").style.display="block";
 document.getElementById("questionText").style.display="none";
-
-document.getElementById("cardImage").src = currentCard.image;
 
 }
 
